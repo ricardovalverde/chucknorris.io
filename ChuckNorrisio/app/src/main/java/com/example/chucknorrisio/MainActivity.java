@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.chucknorrisio.model.CategoryItem;
+import com.example.chucknorrisio.presentation.CategoryPresenter;
 import com.xwray.groupie.GroupAdapter;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private GroupAdapter adapter;
+    private CategoryPresenter presenter;
 
 
     @Override
@@ -45,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         adapter = new GroupAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        presenter = new CategoryPresenter(this);
+        presenter.requestAll();
+
         populationItems();
 
 
