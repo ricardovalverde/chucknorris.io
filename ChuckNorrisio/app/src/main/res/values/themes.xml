@@ -20,7 +20,7 @@
 
     <style name="Theme.ChuckNorrisio.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="Theme.ChuckNorrisio.Fullscreen" parent="Theme.ChuckNorrisio">
+    <style name="Theme.ChuckNorrisio.Fullscreen" parent="Theme.ChuckNorrisio.NoActionBar">
         <item name="android:actionBarStyle">@style/Widget.Theme.ChuckNorrisio.ActionBar.Fullscreen
         </item>
         <item name="android:windowActionBarOverlay">true</item>
