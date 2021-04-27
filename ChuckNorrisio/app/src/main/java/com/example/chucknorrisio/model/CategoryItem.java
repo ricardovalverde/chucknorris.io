@@ -12,13 +12,10 @@ public class CategoryItem extends Item<ViewHolder> {
     private final String categoryName;
     private final int bgColor;
 
-    public CategoryItem (String categoryName, int bgColor){
+    public CategoryItem(String categoryName, int bgColor) {
         this.categoryName = categoryName;
         this.bgColor = bgColor;
     }
-
-
-
 
 
     @Override

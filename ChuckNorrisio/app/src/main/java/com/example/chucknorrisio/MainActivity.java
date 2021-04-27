@@ -1,5 +1,6 @@
 package com.example.chucknorrisio;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -11,19 +12,20 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.chucknorrisio.datasource.CategoryRemoteDataSource;
 import com.example.chucknorrisio.model.CategoryItem;
 import com.example.chucknorrisio.presentation.CategoryPresenter;
 import com.xwray.groupie.GroupAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private GroupAdapter adapter;
-    private CategoryPresenter presenter;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -48,37 +50,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        presenter = new CategoryPresenter(this);
-        presenter.requestAll();
+        CategoryRemoteDataSource dataSource = new CategoryRemoteDataSource();
+        new CategoryPresenter(this, dataSource).requestAll();
 
-        populationItems();
+    }
 
+    public void showProgressBar() {
+        if (progressDialog == null) {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage(getString(R.string.loading));
+            progressDialog.setIndeterminate(true);
+            progressDialog.setCancelable(false);
+        }
+        progressDialog.show();
 
+    }
 
-
-
+    public void hideProgressBar() {
+        if (progressDialog != null) {
+            progressDialog.hide();
+        }
 
 
     }
-    private void populationItems(){
 
-        List<CategoryItem> items = new ArrayList<>();
-        items.add(new CategoryItem("Cat 1", 0xFF00FFFF));
-        items.add(new CategoryItem("Cat 2", 0xFFA0FFFF));
-        items.add(new CategoryItem("Cat 3", 0xFF0AFFFF));
-        items.add(new CategoryItem("Cat 4", 0xFF00F5FF));
-        items.add(new CategoryItem("Cat 5", 0xFF00F8FF));
-        items.add(new CategoryItem("Cat 6", 0xFF10FFFF));
 
-        adapter.addAll(items);
+    public void showCategories(List<CategoryItem> categoryItems) {
+
+        adapter.addAll(categoryItems);
         adapter.notifyDataSetChanged();
-
-
-
-
-
-
     }
+
+    public void showFailure(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     public void onBackPressed() {
