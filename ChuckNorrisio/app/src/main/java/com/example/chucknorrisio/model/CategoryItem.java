@@ -17,6 +17,9 @@ public class CategoryItem extends Item<ViewHolder> {
         this.bgColor = bgColor;
     }
 
+    public String getCategoryName() {
+        return categoryName;
+    }
 
     @Override
     public void bind(@NonNull ViewHolder viewHolder, int position) {

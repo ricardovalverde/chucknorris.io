@@ -1,6 +1,7 @@
 package com.example.chucknorrisio;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -47,11 +48,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         adapter = new GroupAdapter();
+        adapter.setOnItemClickListener((item, view) -> {
+            Intent intent = new Intent(MainActivity.this, JokeActivity.class);
+            intent.putExtra(JokeActivity.CATEGORY_KEY, ((CategoryItem) item).getCategoryName());
+            startActivity(intent);
+        });
+
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         CategoryRemoteDataSource dataSource = new CategoryRemoteDataSource();
         new CategoryPresenter(this, dataSource).requestAll();
+
 
     }
 
