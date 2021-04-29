@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.chucknorrisio.datasource.JokeRemoteDataSource;
 import com.example.chucknorrisio.model.Joke;
 import com.example.chucknorrisio.presentation.JokePresenter;
+import com.squareup.picasso.Picasso;
 
 public class JokeActivity extends AppCompatActivity {
     static final String CATEGORY_KEY = "category_key";
@@ -70,7 +71,8 @@ public class JokeActivity extends AppCompatActivity {
         TextView txtJoke = findViewById(R.id.txt_joke);
         txtJoke.setText(joke.getJoke());
 
-        ImageView imageView = findViewById(R.id.img_jokeLayout);
+        ImageView imageJoke = findViewById(R.id.img_jokeLayout);
+        Picasso.get().load(joke.getIconUrl()).into(imageJoke);
     }
 
     public void showFailure(String message) {

@@ -25,11 +25,11 @@ public class JokeRemoteDataSource {
 
 
     public interface JokeCallback {
-        public void onSuccess(Joke joke);
+        void onSuccess(Joke joke);
 
-        public void onError(String message);
+        void onError(String message);
 
-        public void onComplete();
+        void onComplete();
 
     }
 
