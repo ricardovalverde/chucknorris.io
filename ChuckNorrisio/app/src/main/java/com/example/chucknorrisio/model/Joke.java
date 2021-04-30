@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName;
 public class Joke {
 
     @SerializedName("value")
-    private String joke;
+    private final String joke;
 
     @SerializedName("icon_url")
-    private String iconUrl;
+    private final String iconUrl;
 
     public Joke(String joke, String iconUrl) {
         this.joke = joke;

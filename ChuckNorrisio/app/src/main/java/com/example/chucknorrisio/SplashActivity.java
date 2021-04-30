@@ -19,13 +19,13 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(intent);
         }
     };
-    private View mContentView;
-    private final Runnable mShowRunnable = new Runnable() {
+    private final Runnable mHideRunnable = new Runnable() {
         @Override
         public void run() {
-            show();
+            hide();
         }
     };
+    private View mContentView;
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
@@ -42,10 +42,10 @@ public class SplashActivity extends AppCompatActivity {
 
         }
     };
-    private final Runnable mHideRunnable = new Runnable() {
+    private final Runnable mShowRunnable = new Runnable() {
         @Override
         public void run() {
-            hide();
+            show();
         }
     };
 

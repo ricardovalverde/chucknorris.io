@@ -9,13 +9,13 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ChuckNorrisAPI {
-    static final String BASE_URL = "https://api.chucknorris.io/";
+    String BASE_URL = Endpoint.BASE_URL;
 
     @GET("jokes/categories")
     Call<List<String>> findAll();
 
 
     @GET("jokes/random")
-    Call<Joke> findRandomBy(@Query("category")String category);
+    Call<Joke> findRandomBy(@Query("category") String category);
 
 }

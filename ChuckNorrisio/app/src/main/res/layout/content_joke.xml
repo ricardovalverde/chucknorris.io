@@ -20,6 +20,5 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/img_jokeLayout"
         android:layout_marginStart="16dp"
-        android:layout_toEndOf="@id/img_jokeLayout"
-        tools:text="@tools:sample/lorem" />
+        android:layout_toEndOf="@id/img_jokeLayout" />
 </RelativeLayout>

@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HTTPClient {
 
-    static Retrofit retrofit(){
+    static Retrofit retrofit() {
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(ChuckNorrisAPI.BASE_URL)

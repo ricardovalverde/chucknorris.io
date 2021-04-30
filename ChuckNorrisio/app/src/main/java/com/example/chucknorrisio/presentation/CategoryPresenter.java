@@ -19,7 +19,6 @@ public class CategoryPresenter implements CategoryRemoteDataSource.ListCategorie
         this.dataSource = dataSource;
     }
 
-    //chamar o servidor http
     public void requestAll() {
         this.view.showProgressBar();
         this.dataSource.findAll(this);
