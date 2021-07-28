@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,12 +23,12 @@ public class JokeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         if (getIntent().getExtras() != null) {
             String category = getIntent().getExtras().getString(CATEGORY_KEY);
-            Log.i("teste", category);
 
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setTitle(category);
@@ -43,10 +42,8 @@ public class JokeActivity extends AppCompatActivity {
                 fab.setOnClickListener(view -> {
                     jokePresenter.findJokeBy(category);
 
-
                 });
             }
-
         }
     }
 
@@ -58,7 +55,6 @@ public class JokeActivity extends AppCompatActivity {
             progressDialog.setCancelable(false);
         }
         progressDialog.show();
-
     }
 
     public void hideProgressBar() {

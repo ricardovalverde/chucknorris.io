@@ -10,18 +10,16 @@ public class JokeRemoteDataSource {
 
 
     public void findJokeBy(JokeCallback jokeCallback, String category) {
+
         HTTPClient.retrofit().create(ChuckNorrisAPI.class)
                 .findRandomBy(category)
                 .enqueue(new Callback<Joke>() {
-
                     @Override
                     public void onResponse(Call<Joke> call, Response<Joke> response) {
                         if (response.isSuccessful()) {
                             jokeCallback.onSuccess(response.body());
-
                         }
                         jokeCallback.onComplete();
-
                     }
 
                     @Override
@@ -30,10 +28,10 @@ public class JokeRemoteDataSource {
                         jokeCallback.onComplete();
                     }
                 });
-
     }
 
     public interface JokeCallback {
+
         void onSuccess(Joke joke);
 
         void onError(String message);

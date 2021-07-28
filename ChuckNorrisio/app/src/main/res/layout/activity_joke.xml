@@ -29,7 +29,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:background="@color/light_blue_600"
-        android:src="@drawable/ic_refresh"
-        android:contentDescription="@string/btn_reload" />
+        android:contentDescription="@string/btn_reload"
+        android:src="@drawable/ic_refresh" />
 
 </android.support.design.widget.CoordinatorLayout>

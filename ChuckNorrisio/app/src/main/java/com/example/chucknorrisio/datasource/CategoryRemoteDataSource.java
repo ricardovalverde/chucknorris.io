@@ -9,6 +9,7 @@ import retrofit2.Response;
 public class CategoryRemoteDataSource {
 
     public void findAll(ListCategoriesCallback callback) {
+
         HTTPClient.retrofit().create(ChuckNorrisAPI.class)
                 .findAll()
                 .enqueue(new Callback<List<String>>() {
@@ -17,20 +18,15 @@ public class CategoryRemoteDataSource {
                         if (response.isSuccessful()) {
                             callback.onSuccess(response.body());
                         }
-
                         callback.onComplete();
-
                     }
 
                     @Override
                     public void onFailure(Call<List<String>> call, Throwable t) {
                         callback.onError(t.getMessage());
                         callback.onComplete();
-
                     }
                 });
-
-
     }
 
 
@@ -42,5 +38,4 @@ public class CategoryRemoteDataSource {
 
         void onComplete();
     }
-
 }

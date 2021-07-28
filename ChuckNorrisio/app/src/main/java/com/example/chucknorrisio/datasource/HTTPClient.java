@@ -11,6 +11,4 @@ public class HTTPClient {
                 .baseUrl(ChuckNorrisAPI.BASE_URL)
                 .build();
     }
-
-
 }

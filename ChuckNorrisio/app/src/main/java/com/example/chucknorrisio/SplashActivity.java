@@ -12,6 +12,7 @@ public class SplashActivity extends AppCompatActivity {
     private static final int UI_ANIMATION_DELAY = 300;
 
     private final Handler mHideHandler = new Handler();
+
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
         public void run() {
@@ -19,13 +20,13 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(intent);
         }
     };
-    private final Runnable mHideRunnable = new Runnable() {
+    private View mContentView;
+    private final Runnable mShowRunnable = new Runnable() {
         @Override
         public void run() {
-            hide();
+            show();
         }
     };
-    private View mContentView;
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
@@ -38,14 +39,12 @@ public class SplashActivity extends AppCompatActivity {
                     | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                     | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
             delayedShow(1500);
-
-
         }
     };
-    private final Runnable mShowRunnable = new Runnable() {
+    private final Runnable mHideRunnable = new Runnable() {
         @Override
         public void run() {
-            show();
+            hide();
         }
     };
 
@@ -57,15 +56,11 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         mContentView = findViewById(R.id.splash_content);
-
-
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-
-
         delayedHide(100);
     }
 
@@ -96,5 +91,5 @@ public class SplashActivity extends AppCompatActivity {
         mHideHandler.removeCallbacks(mShowRunnable);
         mHideHandler.postDelayed(mShowRunnable, delayMillis);
     }
-};
+}
 

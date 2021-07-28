@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -54,14 +55,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
         });
 
-
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         CategoryRemoteDataSource dataSource = new CategoryRemoteDataSource();
         new CategoryPresenter(this, dataSource).requestAll();
-
-
     }
 
     public void showProgressBar() {
@@ -79,8 +77,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (progressDialog != null) {
             progressDialog.hide();
         }
-
-
     }
 
 
@@ -103,7 +99,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
-
     }
 
     @Override
@@ -111,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-
 
         return true;
     }
