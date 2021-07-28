@@ -3,5 +3,5 @@
 
 Joke app 
 
-Introdução a SpashScreen,Retrofit,Picasso e Groupie
+Introdução a SplashScreen,Retrofit,Picasso e Groupie
 . 
