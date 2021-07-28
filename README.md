@@ -1,2 +1,6 @@
 # chucknorris.io
- jokeapp
+3º app do curso de Desenvolvimento Android(Java)
+
+Joke app 
+
+Introdução a SpashScreen,Retrofit,Picasso. 
