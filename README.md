@@ -3,5 +3,5 @@
 
 Joke app 
 
-Introdução a SplashScreen,Retrofit,Picasso e Groupie
+Introdução a SplashScreen,Retrofit,Picasso, Groupie e arquitetura MVP
 . 
